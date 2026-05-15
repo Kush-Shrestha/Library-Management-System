@@ -1,0 +1,6 @@
+@LibraryCrud_HostAddress = http://localhost:5248
+
+GET {{LibraryCrud_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
