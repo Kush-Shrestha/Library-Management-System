@@ -46,7 +46,7 @@ namespace LibraryCrud.Controllers
         }
     }
 
-    [ApiController]
+    
     [Route("api/[controller]")]
     public class CategoriesController : ControllerBase
     {
@@ -86,7 +86,7 @@ namespace LibraryCrud.Controllers
         }
     }
 
-    [ApiController]
+
     [Route("api/[controller]")]
     public class MembersController : ControllerBase
     {
@@ -128,7 +128,7 @@ namespace LibraryCrud.Controllers
         }
     }
 
-    [ApiController]
+   
     [Route("api/[controller]")]
     public class BorrowedRecordsController : ControllerBase
     {
@@ -168,7 +168,7 @@ namespace LibraryCrud.Controllers
         }
     }
 
-    [ApiController]
+  
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
