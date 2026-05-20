@@ -6,5 +6,8 @@
         public string FullName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+
+        // Navigation property for borrowed records
+        public ICollection<BorrowedRecords> BorrowedRecords { get; set; }
     }
 }
