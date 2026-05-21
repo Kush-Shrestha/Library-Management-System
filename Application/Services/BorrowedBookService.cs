@@ -151,13 +151,16 @@ namespace LibraryCrud.Application.Services
             BorrowDate = record.BorrowDate,
             ReturnDate = record.ReturnDate
         };
-
+               //"Convert a BorrowedRecordDto into a BorrowedRecords (entity)"
         private BorrowedRecords MapToEntity(BorrowedRecordDto dto) => new()
         {
+            ID = 0,
             BookID = dto.BookID,
             MemberID = dto.MemberID,
             BorrowDate = dto.BorrowDate,
-            ReturnDate = dto.ReturnDate
+            ReturnDate = dto.ReturnDate ?? DateTime.MinValue,
+            Book = null!,
+            Member = null!
         };
     }
 }

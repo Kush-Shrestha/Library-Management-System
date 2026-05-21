@@ -13,7 +13,7 @@ namespace LibraryCrud.Application.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<BorrowedRecords> GetByIdAsync(int id)
+        public async Task<BorrowedRecords?> GetByIdAsync(int id)
         {
             return await _context.BorrowedRecords
                 .Include(br => br.Book)
@@ -21,7 +21,7 @@ namespace LibraryCrud.Application.Repository
                 .FirstOrDefaultAsync(br => br.ID == id);
         }
 
-        public async Task<BorrowedRecords> GetDetailedRecordAsync(int id)
+        public async Task<BorrowedRecords?> GetDetailedRecordAsync(int id)
         {
             return await _context.BorrowedRecords
                 .Include(br => br.Book)

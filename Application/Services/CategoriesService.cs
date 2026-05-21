@@ -1,4 +1,4 @@
-﻿using LibraryCrud.Application.Repository;
+using LibraryCrud.Application.Repository;
 using LibraryCrud.Domain.DTOs;
 using LibraryCrud.Domain.Entity;
 
@@ -11,7 +11,7 @@ namespace LibraryCrud.Application.Services
         public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository ?? throw new ArgumentNullException(nameof(categoryRepository));
-        }
+        }                                         //If categoryRepository is null, it immediately throws an exception
 
         public async Task<CategoryDto> GetCategoryByIdAsync(int id)
         {
@@ -146,6 +146,7 @@ namespace LibraryCrud.Application.Services
 
         private Categories MapToEntity(CategoryDto dto) => new()
         {
+            ID = dto.ID,
             Name = dto.Name
         };
     }

@@ -13,7 +13,7 @@ namespace LibraryCrud.Application.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<User> GetByIdAsync(int id)
+        public async Task<User?> GetByIdAsync(int id)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.ID == id);
         }
@@ -48,7 +48,7 @@ namespace LibraryCrud.Application.Repository
             return true;
         }
 
-        public async Task<User> GetByEmailAsync(string email)
+        public async Task<User?> GetByEmailAsync(string email)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }

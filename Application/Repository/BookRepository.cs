@@ -13,7 +13,7 @@ namespace LibraryCrud.Application.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<Book> GetByIdAsync(int id)
+        public async Task<Book?> GetByIdAsync(int id)
         {
             return await _context.Books.Include(b => b.Category).FirstOrDefaultAsync(b => b.ID == id);
         }
@@ -56,7 +56,7 @@ namespace LibraryCrud.Application.Repository
                 .ToListAsync();
         }
 
-        public async Task<Book> GetByIsbnAsync(string isbn)
+        public async Task<Book?> GetByIsbnAsync(string isbn)
         {
             return await _context.Books
                 .Include(b => b.Category)

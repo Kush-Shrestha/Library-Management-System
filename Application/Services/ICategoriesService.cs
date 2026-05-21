@@ -1,4 +1,4 @@
-﻿using LibraryCrud.Domain.DTOs;
+using LibraryCrud.Domain.DTOs;
 
 namespace LibraryCrud.Application.Services
 {

@@ -171,7 +171,8 @@ namespace LibraryCrud.Application.Services
             Title = dto.Title,
             Author = dto.Author,
             ISBN = dto.ISBN,
-            CategoryID = dto.CategoryID
+            CategoryID = dto.CategoryID,
+            Category = null!
         };
     }
 }
