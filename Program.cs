@@ -14,8 +14,10 @@ builder.Services.AddSwaggerGen();
 
 //builder.Services.AddDbContent<ApplicationDbContext>(options =>
 //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite("Data Source=library.db"));
+
 
 // Repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
