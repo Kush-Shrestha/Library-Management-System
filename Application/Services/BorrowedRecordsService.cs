@@ -158,7 +158,7 @@ namespace LibraryCrud.Application.Services
             BookID = dto.BookID,
             MemberID = dto.MemberID,
             BorrowDate = dto.BorrowDate,
-            ReturnDate = dto.ReturnDate ?? DateTime.MinValue,
+            ReturnDate = dto.ReturnDate,
             Book = null!,
             Member = null!
         };

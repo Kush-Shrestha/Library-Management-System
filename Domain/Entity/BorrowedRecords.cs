@@ -6,10 +6,10 @@
         public required int BookID { get; set; }
         public required int MemberID { get; set; }
         public required DateTime BorrowDate { get; set; }
-        public required DateTime ReturnDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
 
         // Navigation properties
-        public Book Book { get; set; }
-        public Members Member { get; set; }
+        public Book? Book { get; set; }
+        public Members? Member { get; set; }
     }
 }

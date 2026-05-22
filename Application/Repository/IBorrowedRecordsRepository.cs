@@ -4,8 +4,8 @@ namespace LibraryCrud.Application.Repository
 {
     public interface IBorrowedRecordsRepository
     {
-        Task<BorrowedRecords> GetByIdAsync(int id);
-        Task<BorrowedRecords> GetDetailedRecordAsync(int id);
+        Task<BorrowedRecords?> GetByIdAsync(int id);
+        Task<BorrowedRecords?> GetDetailedRecordAsync(int id); 
         Task<IEnumerable<BorrowedRecords>> GetAllAsync();
         Task<BorrowedRecords> AddAsync(BorrowedRecords record);
         Task<BorrowedRecords> UpdateAsync(BorrowedRecords record);

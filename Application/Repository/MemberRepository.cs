@@ -15,12 +15,16 @@ namespace LibraryCrud.Application.Repository
 
         public async Task<Members?> GetByIdAsync(int id)
         {
-            return await _context.Members.Include(m => m.BorrowedRecords).FirstOrDefaultAsync(m => m.ID == id);
+            return await _context.Members
+                .Include(m => m.BorrowedRecords)
+                .FirstOrDefaultAsync(m => m.ID == id);
         }
 
         public async Task<IEnumerable<Members>> GetAllAsync()
         {
-            return await _context.Members.Include(m => m.BorrowedRecords).ToListAsync();
+            return await _context.Members
+                .Include(m => m.BorrowedRecords)
+                .ToListAsync();
         }
 
         public async Task<Members> AddAsync(Members member)
@@ -40,6 +44,7 @@ namespace LibraryCrud.Application.Repository
         public async Task<bool> DeleteAsync(int id)
         {
             var member = await _context.Members.FindAsync(id);
+
             if (member == null)
                 return false;
 
@@ -59,13 +64,14 @@ namespace LibraryCrud.Application.Repository
         {
             return await _context.Members
                 .Include(m => m.BorrowedRecords)
-                .Where(m => m.BorrowedRecords.Count > 0)
+                .Where(m => m.BorrowedRecords != null && m.BorrowedRecords.Any())
                 .ToListAsync();
         }
 
         public async Task<bool> EmailExistsAsync(string email)
         {
-            return await _context.Members.AnyAsync(m => m.Email == email);
+            return await _context.Members
+                .AnyAsync(m => m.Email == email);
         }
     }
 }

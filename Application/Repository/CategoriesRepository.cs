@@ -15,12 +15,16 @@ namespace LibraryCrud.Application.Repository
 
         public async Task<Categories?> GetByIdAsync(int id)
         {
-            return await _context.Categories.Include(c => c.Books).FirstOrDefaultAsync(c => c.ID == id);
+            return await _context.Categories
+                .Include(c => c.Books)
+                .FirstOrDefaultAsync(c => c.ID == id);
         }
 
         public async Task<IEnumerable<Categories>> GetAllAsync()
         {
-            return await _context.Categories.Include(c => c.Books).ToListAsync();
+            return await _context.Categories
+                .Include(c => c.Books)
+                .ToListAsync();
         }
 
         public async Task<Categories> AddAsync(Categories category)
@@ -40,6 +44,7 @@ namespace LibraryCrud.Application.Repository
         public async Task<bool> DeleteAsync(int id)
         {
             var category = await _context.Categories.FindAsync(id);
+
             if (category == null)
                 return false;
 
@@ -59,13 +64,14 @@ namespace LibraryCrud.Application.Repository
         {
             return await _context.Categories
                 .Include(c => c.Books)
-                .Where(c => c.Books.Count > 0)
+                .Where(c => c.Books != null && c.Books.Any()) 
                 .ToListAsync();
         }
 
         public async Task<bool> NameExistsAsync(string name)
         {
-            return await _context.Categories.AnyAsync(c => c.Name == name);
+            return await _context.Categories
+                .AnyAsync(c => c.Name == name);
         }
     }
 }

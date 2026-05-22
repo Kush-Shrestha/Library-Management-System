@@ -57,7 +57,8 @@ namespace LibraryCrud.Controllers
                 {
                     Title = createBookDto.Title,
                     Author = createBookDto.Author,
-                    ISBN = createBookDto.ISBN
+                    ISBN = createBookDto.ISBN,
+                    CategoryID = createBookDto.CategoryID
                 };
 
                 var createdBook = await _bookService.CreateBookAsync(bookDto);
@@ -82,7 +83,8 @@ namespace LibraryCrud.Controllers
                     ID = id,
                     Title = updateBookDto.Title,
                     Author = updateBookDto.Author,
-                    ISBN = updateBookDto.ISBN
+                    ISBN = updateBookDto.ISBN,
+                    CategoryID = updateBookDto.CategoryID
                 };
 
                 var updatedBook = await _bookService.UpdateBookAsync(id, bookDto);

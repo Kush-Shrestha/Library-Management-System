@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LibraryCrud.Application.Repository
 {
-    public class BorrowedRecordRepository : IBorrowedRecordsRepository
+    public class BorrowedRecordsRepository : IBorrowedRecordsRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public BorrowedRecordRepository(ApplicationDbContext context)
+        public BorrowedRecordsRepository(ApplicationDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
@@ -24,7 +24,7 @@ namespace LibraryCrud.Application.Repository
         public async Task<BorrowedRecords?> GetDetailedRecordAsync(int id)
         {
             return await _context.BorrowedRecords
-                .Include(br => br.Book)
+                .Include(br => br.Book!)          
                 .ThenInclude(b => b.Category)
                 .Include(br => br.Member)
                 .FirstOrDefaultAsync(br => br.ID == id);
@@ -55,6 +55,7 @@ namespace LibraryCrud.Application.Repository
         public async Task<bool> DeleteAsync(int id)
         {
             var record = await _context.BorrowedRecords.FindAsync(id);
+
             if (record == null)
                 return false;
 
@@ -66,7 +67,7 @@ namespace LibraryCrud.Application.Repository
         public async Task<IEnumerable<BorrowedRecords>> GetByMemberIdAsync(int memberId)
         {
             return await _context.BorrowedRecords
-                .Where(br => br.MemberID == memberId)
+                .Where(br => br.MemberID == memberId) 
                 .Include(br => br.Book)
                 .Include(br => br.Member)
                 .ToListAsync();
@@ -75,7 +76,7 @@ namespace LibraryCrud.Application.Repository
         public async Task<IEnumerable<BorrowedRecords>> GetByBookIdAsync(int bookId)
         {
             return await _context.BorrowedRecords
-                .Where(br => br.BookID == bookId)
+                .Where(br => br.BookID == bookId) 
                 .Include(br => br.Book)
                 .Include(br => br.Member)
                 .ToListAsync();

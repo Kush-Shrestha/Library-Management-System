@@ -14,6 +14,7 @@ namespace LibraryCrud.Domain.DTOs
         public required string Title { get; set; }
         public required string Author { get; set; }
         public required string ISBN { get; set; }
+        public required int CategoryID { get; set; }
     }
 
     public class UpdateBookDto
@@ -21,5 +22,6 @@ namespace LibraryCrud.Domain.DTOs
         public required string Title { get; set; }   
         public required string Author { get; set; }
         public required string ISBN { get; set; }
+        public required int CategoryID { get; set; }
     }
 }
