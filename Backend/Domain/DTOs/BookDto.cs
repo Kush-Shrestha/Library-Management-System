@@ -2,23 +2,26 @@ namespace LibraryCrud.Domain.DTOs
 {
     public class BookDto
     {
-    
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string ISBN { get; set; }
+        public int ID { get; set; }
+        public required string Title { get; set; }
+        public required string Author { get; set; }
+        public required string ISBN { get; set; }
+        public int CategoryID { get; set; }
     }
 
     public class CreateBookDto
     {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string ISBN { get; set; }
+        public required string Title { get; set; }
+        public required string Author { get; set; }
+        public required string ISBN { get; set; }
+        public required int CategoryID { get; set; }
     }
 
     public class UpdateBookDto
     {
-        public string Title { get; set; }   
-        public string Author { get; set; }
-        public string ISBN { get; set; }
+        public required string Title { get; set; }   
+        public required string Author { get; set; }
+        public required string ISBN { get; set; }
+        public required int CategoryID { get; set; }
     }
 }
