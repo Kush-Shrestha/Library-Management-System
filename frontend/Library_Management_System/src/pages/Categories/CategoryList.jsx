@@ -66,16 +66,16 @@ export default function CategoryList() {
               </tr>
             </thead>
             <tbody>
-              {categories.map(category => (
-                <tr key={category.id}>
-                  <td>{category.name}</td>
-                  <td className="actions">
-                    <Link to={`/categories/${category.id}/edit`} className="btn btn-primary btn-sm">Edit</Link>
-                    <button className="btn btn-danger btn-sm" onClick={() => handleDelete(category.id)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+  {(categories ?? []).map(category => (
+    <tr key={category.id}>
+      <td>{category.name}</td>
+      <td className="actions">
+        <Link to={`/categories/${category.id}/edit`} className="btn btn-primary btn-sm">Edit</Link>
+        <button className="btn btn-danger btn-sm" onClick={() => handleDelete(category.id)}>Delete</button>
+      </td>
+    </tr>
+  ))}
+</tbody>
           </table>
         </div>
       )}

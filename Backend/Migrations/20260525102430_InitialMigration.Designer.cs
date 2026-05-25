@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryCrud.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260522100507_Books")]
-    partial class Books
+    [Migration("20260525102430_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
