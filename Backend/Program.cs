@@ -53,10 +53,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Middleware 
-app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
 
 // (Optional: add when authentication is used)
 // app.UseAuthentication();
